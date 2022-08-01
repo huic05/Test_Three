@@ -18,6 +18,8 @@ public class GameScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        counterGUI.text = "Counter:" + counter;
+        buttonGUI.text = "Turn Off";
         //Update the counterGUI text to display current count
         //Update the buttonGUI to say "Turn Off"
     }
@@ -29,6 +31,7 @@ public class GameScript : MonoBehaviour
         {
             lighting.enabled = false;
             //Update the buttonGUI to say "Turn On" 
+            buttonGUI.text = "Turn On";
         }
         else
         {
@@ -37,7 +40,9 @@ public class GameScript : MonoBehaviour
             lighting.color = new Color(Random.Range(0,0.99f), Random.Range(0, 0.99f), Random.Range(0, 0.99f), 1);
 
             //Update the counterGUI text to display current count
+            counterGUI.text = "Counter:" + counter;
             //Update the buttonGUI to say "Turn Off"
+            buttonGUI.text = "Turn Off";
         }
         buttonSFX.Play();
     }
@@ -45,6 +50,8 @@ public class GameScript : MonoBehaviour
     public void goToNextLevel()
     {
         //Use Scene Manager and the nextLevelName variable to Load into MainMenu
+        SceneManager.LoadScene(nextLevelName);
         //Use the buttonSFX to play when this function executes
+        buttonSFX.Play();
     }
 }
